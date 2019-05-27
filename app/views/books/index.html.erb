@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Judul</th>
+        <th scope="col">Halaman</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <th scope="row"><%= book.id %></th>
+        <td><%= book.title %></td>
+        <td><%= book.page %></td>
+        <td><%= link_to "Detail", book_path(book)%> | <%= link_to "Edit", edit_book_path(book) %> | <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: "Buku #{book.title} akan dihapus?"} %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= link_to "Buat Buku", new_book_path, class: 'btn btn-primary' %>
+  </div>
+</div>

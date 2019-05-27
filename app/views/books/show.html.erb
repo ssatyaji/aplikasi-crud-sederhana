@@ -1,0 +1,43 @@
+<div class="container">
+
+  <table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Judul</th> 
+      <th scope="col"><%= @book.title %></th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Jumlah halaman</th>
+        <th scope="row"><%= @book.page %></th>
+      </tr>
+      </tr>
+      <tr>
+        <th scope="row">Tahun terbit</th>
+        <th scope="row"><%= @book.year %></th> 
+      </tr>
+      </tr>
+      <tr>
+        <th scope="row">Deskripsi</th>
+        <th scope="row"><%= @book.description %></th>
+      </tr>
+      </tr>
+      <tr>
+        <th scope="row">Status buku</th>
+        <th scope="row"><%= @book.humanize_state.titlecase %></th>
+      </tr>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <% if @book.state == 'active'%>
+      <%= link_to "Non Aktifkan", status_book_path(@book, state: 'inactive'), method: :patch, class: 'btn btn-primary' %>
+    <% else %>
+      <%= link_to "Aktifkan", status_book_path(@book, state: 'active'), method: :patch %>
+    <% end %>
+
+    <%= link_to "Kembali", books_path, class: 'btn btn-primary' %>
+
+  </div>
+</div>
