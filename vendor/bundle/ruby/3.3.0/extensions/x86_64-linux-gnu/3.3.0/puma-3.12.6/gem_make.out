@@ -1,0 +1,68 @@
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/puma-3.12.6/ext/puma_http11
+/usr/bin/ruby3.3 -I/usr/lib/ruby/vendor_ruby extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/puma-3.12.6/ext/puma_http11
+make DESTDIR\= sitearchdir\=./.gem.20250731-3241-jwz8sy sitelibdir\=./.gem.20250731-3241-jwz8sy clean
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/puma-3.12.6/ext/puma_http11
+make DESTDIR\= sitearchdir\=./.gem.20250731-3241-jwz8sy sitelibdir\=./.gem.20250731-3241-jwz8sy
+compiling http11_parser.c
+compiling io_buffer.c
+compiling mini_ssl.c
+mini_ssl.c: In function ‘get_dh1024’:
+mini_ssl.c:89:3: warning: ‘DH_new’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   89 |   dh = DH_new();
+      |   ^~
+In file included from /usr/include/openssl/dsa.h:31,
+                 from /usr/include/openssl/x509.h:37,
+                 from /usr/include/openssl/ssl.h:32,
+                 from mini_ssl.c:15:
+/usr/include/openssl/dh.h:210:27: note: declared here
+  210 | OSSL_DEPRECATEDIN_3_0 DH *DH_new(void);
+      |                           ^~~~~~
+mini_ssl.c:104:3: warning: ‘DH_set0_pqg’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  104 |   if (p == NULL || g == NULL || !DH_set0_pqg(dh, p, NULL, g)) {
+      |   ^~
+/usr/include/openssl/dh.h:266:27: note: declared here
+  266 | OSSL_DEPRECATEDIN_3_0 int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g);
+      |                           ^~~~~~~~~~~
+mini_ssl.c:105:5: warning: ‘DH_free’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  105 |     DH_free(dh);
+      |     ^~~~~~~
+/usr/include/openssl/dh.h:211:28: note: declared here
+  211 | OSSL_DEPRECATEDIN_3_0 void DH_free(DH *dh);
+      |                            ^~~~~~~
+mini_ssl.c: In function ‘engine_init_server’:
+mini_ssl.c:193:3: warning: ‘EC_KEY_new_by_curve_name’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  193 |   EC_KEY *ecdh = EC_KEY_new_by_curve_name(NID_secp521r1);
+      |   ^~~~~~
+In file included from /usr/include/openssl/x509.h:33:
+/usr/include/openssl/ec.h:1017:31: note: declared here
+ 1017 | OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_by_curve_name(int nid);
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~
+mini_ssl.c:196:5: warning: ‘EC_KEY_free’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+  196 |     EC_KEY_free(ecdh);
+      |     ^~~~~~~~~~~
+/usr/include/openssl/ec.h:1022:28: note: declared here
+ 1022 | OSSL_DEPRECATEDIN_3_0 void EC_KEY_free(EC_KEY *key);
+      |                            ^~~~~~~~~~~
+mini_ssl.c: In function ‘engine_init_client’:
+mini_ssl.c:220:3: warning: ‘DTLSv1_method’ is deprecated: Since OpenSSL 1.1.0 [-Wdeprecated-declarations]
+  220 |   conn->ctx = SSL_CTX_new(DTLSv1_method());
+      |   ^~~~
+/usr/include/openssl/ssl.h:2068:50: note: declared here
+ 2068 | OSSL_DEPRECATEDIN_1_1_0 __owur const SSL_METHOD *DTLSv1_method(void); /* DTLSv1.0 */
+      |                                                  ^~~~~~~~~~~~~
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/puma-3.12.6/ext/puma_http11
+make DESTDIR\= sitearchdir\=./.gem.20250731-3241-jwz8sy sitelibdir\=./.gem.20250731-3241-jwz8sy install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20250731-3241-jwz8sy/puma
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/puma-3.12.6/ext/puma_http11
+make DESTDIR\= sitearchdir\=./.gem.20250731-3241-jwz8sy sitelibdir\=./.gem.20250731-3241-jwz8sy clean
